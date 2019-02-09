@@ -1,4 +1,4 @@
-package logcontext
+package logContext
 
 import (
 	"context"
