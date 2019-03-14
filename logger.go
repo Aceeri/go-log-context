@@ -33,7 +33,7 @@ func (logger Logger) GetDebug() bool {
 	return logger.debug
 }
 
-var redundantWhitespace = regexp.MustCompile(`[\s\p{Zs}]{2,}`)
+//var redundantWhitespace = regexp.MustCompile(`[\s\p{Zs}]{2,}`)
 
 func (logger Logger) Dlog(format string, args ...interface{}) {
 	if logger.debug {
@@ -42,8 +42,8 @@ func (logger Logger) Dlog(format string, args ...interface{}) {
 }
 
 func (logger Logger) Log(format string, args ...interface{}) {
-	formatted := strings.TrimSpace(fmt.Sprintf(format, args...))
-	formatted = redundantWhitespace.ReplaceAllString(formatted, " ")
+	//formatted := strings.TrimSpace(fmt.Sprintf(format, args...))
+	//formatted = redundantWhitespace.ReplaceAllString(formatted, " ")
 	log.Printf("%s%s\n", logger.Context(), formatted)
 }
 
