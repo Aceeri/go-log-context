@@ -4,8 +4,6 @@ import (
 	"bytes"
 	"fmt"
 	"log"
-	"regexp"
-	"strings"
 )
 
 type Logger struct {
@@ -44,7 +42,7 @@ func (logger Logger) Dlog(format string, args ...interface{}) {
 func (logger Logger) Log(format string, args ...interface{}) {
 	//formatted := strings.TrimSpace(fmt.Sprintf(format, args...))
 	//formatted = redundantWhitespace.ReplaceAllString(formatted, " ")
-	log.Printf("%s%s\n", logger.Context(), formatted)
+	log.Printf("%s%s\n", logger.Context(), fmt.Sprintf(format, args...))
 }
 
 func (logger Logger) RawLog(format string, args ...interface{}) {
